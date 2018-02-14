@@ -11,7 +11,7 @@ public class SumOfAllNumbersN {
         System.out.println();
         System.out.println("Введите натуральное число:");
         int k = in.nextInt();
-        System.out.println("Сумма его цифра равна:"+sumOfAllNumbers(k));
+        System.out.println("Сумма его цифра равна:"+sumOfAllNumbersAlt(k));
     }
     public int sumOfAllNumbers(int n){
         if(n<10){
@@ -19,5 +19,14 @@ public class SumOfAllNumbersN {
         }
         sum +=n%10;
         return sumOfAllNumbers(n/10);
+    }
+    public int sumOfAllNumbersAlt(int n){
+        int sum = 0;
+        while (n>10){
+            sum = sum + n % 10;
+            n /= 10;
+        }
+        sum = sum+n;
+        return sum;
     }
 }

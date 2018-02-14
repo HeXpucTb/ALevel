@@ -40,7 +40,7 @@ public class HomeTask41 {
                 }
                 case 5:{
                     SymmetricTime resolve = new SymmetricTime();
-                    resolve.symmetricTime();
+                    resolve.symmetricTimeAlt();
                     break;
                 }
                 case 6:{

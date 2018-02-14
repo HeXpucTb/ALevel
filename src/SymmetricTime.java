@@ -27,4 +27,29 @@ public class SymmetricTime {
         System.out.println("Количество совпадений: "+count);
         System.out.println();
     }
+    public void symmetricTimeAlt(){
+        System.out.println("Условие задачи: ");
+        System.out.println("Электронные часы показывают время в формате от 00:00 до 23:59. ");
+        System.out.println("Подсчитать сколько раз за сутки случается так, что слева от двоеточия");
+        System.out.println("показывается симметричная комбинация для той, что справа от двоеточия");
+        System.out.println("(например, 02:20, 11:11 или 15:51).");
+        System.out.println();
+        int count = 0;
+        for (int hours = 24; hours>0; hours--){
+            for (int minutes = 59; minutes >0; minutes--){
+                int firstNumHour = hours/10;
+                int secondNumMin = minutes%10;
+                int secondNumHour = hours%10;
+                int firstNumMin = minutes/10;
+                if((firstNumHour==secondNumMin)&&(secondNumHour==firstNumMin)){
+                    System.out.println(hours+":"+minutes);
+                    hours--;
+                    count++;
+                }
+            }
+        }
+        System.out.println();
+        System.out.println("Количество совпадений: "+count);
+        System.out.println();
+    }
 }
