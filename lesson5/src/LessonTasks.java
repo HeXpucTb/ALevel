@@ -16,6 +16,11 @@ public class LessonTasks {
                     resolve.callQuickSortMethod();
                     break;
                 }
+                case 2:{
+                    LabyrinthGenerator resolve = new LabyrinthGenerator();
+                    resolve.callLabyrinthResolve();
+                    break;
+                }
             }
         }while (choise!=0);
     }
