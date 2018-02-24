@@ -22,7 +22,8 @@ public class MainClass {
             switch (scanner.nextInt()) {
                 case 1: {
                     System.out.println("ФИО:");
-                    String name = scanner.next();
+                    scanner.nextLine();
+                    String name = scanner.nextLine();
                     System.out.println("Возраст:");
                     int age = scanner.nextInt();
                     System.out.println("Пол:");
@@ -33,13 +34,15 @@ public class MainClass {
                 }
                 case 2: {
                     System.out.println("ФИО:");
-                    String name = scanner.next();
+                    scanner.nextLine();
+                    String name = scanner.nextLine();
                     System.out.println("Возраст:");
                     int age = scanner.nextInt();
                     System.out.println("Пол:");
                     String gender = scanner.next();
                     System.out.println("Предмет:");
-                    String subject = scanner.next();
+                    scanner.nextLine();
+                    String subject = scanner.nextLine();
                     System.out.println("З.п.:");
                     double salary = scanner.nextDouble();
                     Teacher teacher = new Teacher(name, age, gender, subject, salary);
@@ -48,7 +51,8 @@ public class MainClass {
                 }
                 case 3: {
                     System.out.println("ФИО:");
-                    String name = scanner.next();
+                    scanner.nextLine();
+                    String name = scanner.nextLine();
                     System.out.println("Возраст:");
                     int age = scanner.nextInt();
                     System.out.println("Пол:");
@@ -63,7 +67,8 @@ public class MainClass {
                 }
                 case 4: {
                     System.out.println("ФИО:");
-                    String name = scanner.next();
+                    scanner.nextLine();
+                    String name = scanner.nextLine();
                     System.out.println("Возраст:");
                     int age = scanner.nextInt();
                     System.out.println("Пол:");
@@ -75,7 +80,8 @@ public class MainClass {
                     System.out.println("Год");
                     int year = scanner.nextInt();
                     System.out.println("Профильный предмет:");
-                    String major = scanner.next();
+                    scanner.nextLine();
+                    String major = scanner.nextLine();
                     CollegeStudent cStudent = new CollegeStudent(name, age, gender, idNumber, gpa, year, major);
                     Person.add(cStudent.getName()+", age: "+cStudent.getAge()+", gender: "+cStudent.getGender()+", student id:"+cStudent.getIdNumber()+", gpa:"+cStudent.getGpa()+", year:"+cStudent.getYear()+", major:"+cStudent.getMajor());
                     break;
