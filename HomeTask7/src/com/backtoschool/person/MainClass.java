@@ -28,7 +28,7 @@ public class MainClass {
                     System.out.println("Пол:");
                     String gender = scanner.next();
                     Person person = new Person(name,age,gender);
-                    Person.add(person.name+", age: "+person.age+", gender: "+person.gender);
+                    Person.add(person.getName()+", age: "+person.getAge()+", gender: "+person.getGender());
                     break;
                 }
                 case 2: {
@@ -43,7 +43,7 @@ public class MainClass {
                     System.out.println("З.п.:");
                     double salary = scanner.nextDouble();
                     Teacher teacher = new Teacher(name, age, gender, subject, salary);
-                    Person.add(teacher.name+", age: "+teacher.age+", gender: "+teacher.gender+", subject:"+teacher.getSubject()+", salary:"+teacher.getSalary());
+                    Person.add(teacher.getName()+", age: "+teacher.getAge()+", gender: "+teacher.getGender()+", subject:"+teacher.getSubject()+", salary:"+teacher.getSalary());
                     break;
                 }
                 case 3: {
@@ -58,7 +58,7 @@ public class MainClass {
                     System.out.println("GPA:");
                     double gpa = scanner.nextDouble();
                     Student student = new Student(name, age, gender, idNumber, gpa);
-                    Person.add(student.name+", age: "+student.age+", gender: "+student.gender+", student id:"+student.idNumber+", gpa:"+student.gpa);
+                    Person.add(student.getName()+", age: "+student.getAge()+", gender: "+student.getGender()+", student id:"+student.getIdNumber()+", gpa:"+student.getGpa());
                     break;
                 }
                 case 4: {
@@ -77,7 +77,7 @@ public class MainClass {
                     System.out.println("Профильный предмет:");
                     String major = scanner.next();
                     CollegeStudent cStudent = new CollegeStudent(name, age, gender, idNumber, gpa, year, major);
-                    Person.add(cStudent.name+", age: "+cStudent.age+", gender: "+cStudent.gender+", student id:"+cStudent.idNumber+", gpa:"+cStudent.gpa+", year:"+cStudent.getYear()+", major:"+cStudent.getMajor());
+                    Person.add(cStudent.getName()+", age: "+cStudent.getAge()+", gender: "+cStudent.getGender()+", student id:"+cStudent.getIdNumber()+", gpa:"+cStudent.getGpa()+", year:"+cStudent.getYear()+", major:"+cStudent.getMajor());
                     break;
                 }
                 case 0:{

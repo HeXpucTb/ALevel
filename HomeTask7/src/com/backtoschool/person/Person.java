@@ -1,9 +1,9 @@
 package com.backtoschool.person;
 
 public class Person {
-    public String name;
-    public int age;
-    public String gender;
+    private String name;
+    private int age;
+    private String gender;
 
     public Person(String name, int age, String gender) {
         this.name = name;

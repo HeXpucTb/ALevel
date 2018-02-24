@@ -2,8 +2,6 @@ package com.backtoschool.person.teacher;
 
 import com.backtoschool.person.Person;
 
-import java.util.Scanner;
-
 public class Teacher extends Person {
     private double salary;
     private String subject;

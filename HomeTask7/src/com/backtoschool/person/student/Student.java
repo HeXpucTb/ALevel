@@ -3,8 +3,8 @@ package com.backtoschool.person.student;
 import com.backtoschool.person.Person;
 
 public class Student extends Person {
-    public String idNumber;
-    public double gpa;
+    private String idNumber;
+    private double gpa;
 
     @Override
     public String toString() {
