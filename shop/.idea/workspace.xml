@@ -255,6 +255,17 @@
               <item name="shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="shop" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -415,12 +426,12 @@
       <workItem from="1519377629835" duration="264000" />
       <workItem from="1519378205747" duration="1563000" />
       <workItem from="1519476950529" duration="38771000" />
-      <workItem from="1519660701192" duration="42541000" />
+      <workItem from="1519660701192" duration="43014000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89009000" />
+    <option name="totallyTimeSpent" value="89482000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="711" extended-state="6" />
