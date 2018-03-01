@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Demo {
     public static String read(String path) {
         StringBuilder stringBuilder = null;
-        
+
         try(BufferedReader reader = new BufferedReader(new FileReader(path))){
             stringBuilder = new StringBuilder();
             String currentString = reader.readLine();
@@ -20,7 +20,7 @@ public class Demo {
 
         return stringBuilder.toString();
     }
-        public static void main (String[]args){
+    public static void main (String[]args){
             System.out.println(read("/home/aleksandr/IdeaProjects/ALevel/com.demoLesson9/test.txt"));
-        }
     }
+}
