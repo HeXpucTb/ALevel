@@ -28,4 +28,11 @@ public abstract class AbstractPosition implements Position{
         this.price = price;
         this.name = name;
     }
+
+    @Override
+    public int compareTo(Position position) {
+        Double tempPrice = position.getPrice();
+
+        return tempPrice.compareTo(this.price);
+    }
 }

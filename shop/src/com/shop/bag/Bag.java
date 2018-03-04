@@ -2,11 +2,13 @@ package com.shop.bag;
 
 import com.shop.position.Position;
 
-public interface Bag {
+import java.util.List;
+
+public interface Bag{
     enum Status{OPEN, PAID}
     int getNotUsedSize();
-    Position[] getPositions();
-    void setPositions(Position[] positions);
+    List<Position> getPositions();
+    void setPositions(List<Position> positions);
     void add(Position position);
     boolean haveNext();
     Position next();

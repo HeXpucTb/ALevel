@@ -1,11 +1,24 @@
 package com.shop.shelf;
+import java.util.List;
 
-import com.shop.position.Position;
-
-public interface Shelf {
-   void putItem(int index,Position value);
-   Position getItem(int index);
-   boolean checkAvailable(int count);
-   boolean checkIfEmpty(int index);
-   int getLength();
+public class Shelf<T> {
+    private List<T> shelfPositions;
+   public Shelf(List<T> positions){
+       shelfPositions = positions;
+   }
+    public void putItem(T position) {
+        shelfPositions.add(position);
+    }
+    public T getItem(int index) {
+        return shelfPositions.get(index);
+    }
+    public void removeItem(int index){
+       shelfPositions.remove(index);
+    }
+    public int getLength(){
+        return shelfPositions.size();
+    }
+    public List<T> getShelfPositions(){
+       return shelfPositions;
+    }
 }

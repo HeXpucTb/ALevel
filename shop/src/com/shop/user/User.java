@@ -8,6 +8,6 @@ public interface User {
     String getName();
     String getPassword();
     void payForPurchases();
-    void setNewBuyerBag(Bag bag/*, Position[] positions*/);
+    void setNewBuyerBag(String date, Bag bag);
     void showAllBaskets();
 }

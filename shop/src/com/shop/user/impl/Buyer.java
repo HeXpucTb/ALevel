@@ -1,20 +1,16 @@
 package com.shop.user.impl;
-
-import com.shop.bag.ATBPacket;
 import com.shop.bag.Bag;
 import com.shop.position.Position;
 import com.shop.user.User;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Buyer implements User{
     private String name;
     private String password;
-    private ArrayList<Bag> clientBags;
+    private Map<String,Bag> clientBags;
     public Buyer(){
-        clientBags = new ArrayList<>();
+        clientBags = new HashMap<>();
     }
     public void initializeNewUser(){
         Scanner scanner = new Scanner(System.in);
@@ -30,8 +26,6 @@ public class Buyer implements User{
         } else {
             initializeNewUser();
         }
-
-
     }
     public boolean initializeUser(List<User> userList){
         boolean check = false;
@@ -50,13 +44,10 @@ public class Buyer implements User{
         }
         return check;
     }
-    public void setNewBuyerBag(Bag bag/*,Position[] positions*/){
-        /*ATBPacket tempBag = new ATBPacket();
-        tempBag.setPositions(positions);
-        tempBag.setStatus(bag.getStatus());*/
-        clientBags.add(bag);
+    public void setNewBuyerBag(String date,Bag bag){
+        clientBags.put(date,bag);
     }
-    public ArrayList<Bag> getClientBags(){
+    public Map<String,Bag> getClientBags(){
         return clientBags;
     }
     @Override
@@ -81,18 +72,23 @@ public class Buyer implements User{
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите корзину, которую оплачиваем:");
         showAllBaskets();
-        System.out.println("№ корзины:");
-        clientBags.get(scanner.nextInt()).setStatus(Bag.Status.PAID);
+        System.out.println("Введите время заказа:");
+        clientBags.get(scanner.nextLine()).setStatus(Bag.Status.PAID);
     }
     public void showAllBaskets(){
-        for (int i = 0; i<clientBags.size();i++){
-            Position[] positions = clientBags.get(i).getPositions();
-            System.out.println(i+"я корзина, статус - "+clientBags.get(i).getStatus());
+        Set keys = getBagKeys();
+        for (Object key: keys) {
+            List<Position> positions = clientBags.get(key).getPositions();
+            System.out.println(key+" дата корзины, статус - "+clientBags.get(key).getStatus());
             System.out.println("В корзине находятся:");
-            for (int j = 0; j < positions.length; j++) {
-                System.out.println(positions[j].getName()+" , цена - "+positions[j].getPrice());
+            for (int j = 0; j < positions.size(); j++) {
+                System.out.println(positions.get(j).getName()+" , цена - "+positions.get(j).getPrice());
             }
-            System.out.println("На сумму(с учетом акции)"+clientBags.get(i).getFinalSum());
+            System.out.println("На сумму(с учетом акции)"+clientBags.get(key).getFinalSum());
         }
+    }
+    private Set getBagKeys(){
+        Set keys = clientBags.keySet();
+        return keys;
     }
 }

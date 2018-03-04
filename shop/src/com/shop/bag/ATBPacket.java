@@ -1,11 +1,13 @@
 package com.shop.bag;
 
 import com.shop.position.Position;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ATBPacket implements Bag{
     private static final int SIZE = 10000;
-    private Position[] positions = new Position[SIZE];
+    private List<Position> positions = new ArrayList<>(SIZE);
     private int realIndex = 0;
     private int itteratorIndex = 0;
     private Status status = Status.OPEN;
@@ -28,11 +30,11 @@ public class ATBPacket implements Bag{
     }
 
     @Override
-    public void setPositions(Position[] positions) {
+    public void setPositions(List<Position> positions) {
         this.positions = positions;
     }
 
-    public Position[] getPositions() {
+    public List<Position> getPositions() {
         return positions;
     }
     @Override
@@ -40,16 +42,17 @@ public class ATBPacket implements Bag{
         return SIZE - realIndex;
     }
     public void add(Position position){
-        positions[realIndex++] = position;
+        positions.add(realIndex++,position);
     }
     public boolean haveNext(){
         return itteratorIndex<realIndex;
     }
 
     public Position next(){
-        return positions[itteratorIndex++];
+        return positions.get(itteratorIndex++);
     }
     public void initIterator(){
         itteratorIndex = 0;
     }
+
 }

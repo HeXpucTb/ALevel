@@ -1,24 +1,27 @@
 package com.shop;
-
 import com.shop.bag.ATBPacket;
 import com.shop.bag.Bag;
 import com.shop.bag.BagImpl;
 import com.shop.manager.AccountManager;
 import com.shop.manager.ShelfManager;
 import com.shop.manager.ShopManager;
+import com.shop.position.Position;
 import com.shop.shelf.Shelf;
 import com.shop.user.User;
 import com.shop.user.impl.Buyer;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+
 public class Main {
+    private static Scanner scanner = new Scanner(System.in);
     private static User currentUser;
-    private static Shelf[] shelfArray;
+    private static List<Shelf> shelfList = new ArrayList<>();
     public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
         AccountManager accounts = new AccountManager();
         currentUser = initUser(accounts.getUserList());
-        callShopManager();
+        callShelfManager();
         System.out.println("Выберем пакет");
         Bag bag = selectBag();
         while (true){
@@ -57,9 +60,8 @@ public class Main {
         return bag;
     }
     private static Bag doPokupku(Bag bag){
-        Scanner scanner = new Scanner(System.in);
         while (bag.getNotUsedSize()!=0){
-            printContent(shelfArray);
+            printContent(shelfList);
             System.out.println("Выберите полку(введите -1, если закончили с покупками):");
             System.out.println("Если все полки пустые - позвать менеджера: введите -2");
             int shelf = scanner.nextInt();
@@ -67,63 +69,60 @@ public class Main {
                 break;
             }
             if (shelf==-2){
-                callShopManager();
+                callShelfManager();
                 break;
             }
             System.out.println("выберите позицию:");
             int position = scanner.nextInt();
-            if(shelfArray[shelf].getItem(position)!=null) {
-                bag.add(shelfArray[shelf].getItem(position));
-                shelfArray[shelf].putItem(position, null);
-            }else System.out.println("Позиция пуста");
+            if(shelfList.isEmpty()||shelfList.get(shelf).getShelfPositions().isEmpty()){
+                System.out.println("Полка пуста");
+                doPokupku(bag);
+            }
+            bag.add((Position) shelfList.get(shelf).getItem(position));
+            shelfList.get(shelf).removeItem(position);
         }
         return bag;
     }
     private static void goNaKassu(Bag bag){
         ShopManager babaGalya = new ShopManager();
             babaGalya.sum(bag);
-            currentUser.setNewBuyerBag(babaGalya.getBag());
+            Date date = new Date();
+            String str = String.format("%tH:%<tM:%<tS",date);
+            currentUser.setNewBuyerBag(str, babaGalya.getBag());
             }
-    private static void printContent(Shelf[] array){
-        for (int j = 0; j < array.length; j++) {
+    private static void printContent(List<Shelf> shelfList){
+        for (int j = 0; j < shelfList.size(); j++) {
             System.out.println(j+"я полка:");
-            for (int i = 0; i < array[j].getLength(); i++) {
-                Shelf item = array[j];
-                if(item.getItem(i)!=null) {
-                    item.getItem(i).getName();
-                    System.out.println(i + "я позиция: " + item.getItem(i).getName() + " цена: " + item.getItem(i).getPrice());
-                }
-                else {
-                    System.out.println(i + "я позиция пустая");
-                }
+            for (int i = 0; i < shelfList.get(j).getLength(); i++) {
+                Shelf<?> shelf = shelfList.get(j);
+                Position position = (Position) shelf.getItem(i);
+                System.out.println(i + "я позиция: " + position.getName() + " цена: " + position.getPrice());
             }
         }
     }
     private static User initUser(List<User> userList){
-        Scanner scanner = new Scanner(System.in);
         Buyer buyer = new Buyer();
         System.out.println("Представимся:");
         System.out.println("n - если вы новый пользователь");
         System.out.println("u - если у вас есть аккаунт");
         if (scanner.next().equals("n")){
-            buyer.initializeNewUser();
-            return buyer;
-        }
-        if(scanner.next().equals("u")){
-            if(buyer.initializeUser(userList)){
+                buyer.initializeNewUser();
                 return buyer;
             }
-        }
+        if(scanner.next().equals("u")){
+                if(buyer.initializeUser(userList)){
+                        return buyer;
+                    }
+            }
         return buyer;
     }
-    private static void callShopManager(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Сколько полок необходимо?");
-        int shelfCount = scanner.nextInt();
-        shelfArray = new Shelf[shelfCount];
-        for (int i = 0; i < shelfCount; i++) {
+    private static void callShelfManager(){
+        String more;
+        do {
             ShelfManager shelfManager = new ShelfManager();
-            shelfArray[i] = shelfManager.createNewShelf();
-        }
+            shelfList.add(shelfManager.fillShelf());
+            System.out.println("Добавить еще 1 полку?(yes/no)");
+            more = scanner.next();
+        }while (more.equals("yes"));
     }
 }
