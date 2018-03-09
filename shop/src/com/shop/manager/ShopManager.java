@@ -4,6 +4,7 @@ import com.shop.bag.Bag;
 import com.shop.position.Position;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ShopManager {
@@ -14,7 +15,14 @@ public class ShopManager {
         this.bag = bag;
         double sum = 0;
         finalBagPositions = bag.getPositions();
-        Collections.sort(finalBagPositions);
+        Collections.sort(finalBagPositions, new Comparator<Position>() {
+            @Override
+            public int compare(Position o1, Position o2) {
+                if(o1.getPrice()>o2.getPrice())return -2;
+                if(o1.getPrice()== o2.getPrice())return 0;
+                else return +2;
+            }
+        });
         printBagContent();
         if(finalBagPositions.isEmpty()){
             return sum;

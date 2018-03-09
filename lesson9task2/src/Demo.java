@@ -1,10 +1,8 @@
-import examples.ExampleOfClassCastException;
-import examples.ExampleOfNullPointerException;
-import examples.ExampleOfArrayIndexOutOfBoundsException;
-import examples.ExampleOfNumberFormatException;
+import examples.*;
 
 public class Demo {
     public static void main(String[] args) {
+        //Все перечисленные ниже исключения unchecked, их можно не обрабатывать
         System.out.println("Пример NumberFormatException");
         ExampleOfNumberFormatException example1 = new ExampleOfNumberFormatException();
         String[] array = example1.callNumFormatEx();
@@ -19,7 +17,7 @@ public class Demo {
 
         System.out.println("Пример ClassCastException");
         ExampleOfClassCastException example3 = new ExampleOfClassCastException();
-        example3.callClassCastEx();
-
+        Example example4 = example3.callClassCastEx();
+        System.out.println(example4.toString());
     }
 }

@@ -7,8 +7,6 @@ public class ExampleOfClassCastException extends Example{
     public Example callClassCastEx(){
         Random random = new Random();
         Example example = new ExampleOfArrayIndexOutOfBoundsException();
-
-        try{
             switch (random.nextInt(2)+1){
                 case 1: {
                     ExampleOfNumberFormatException example1 = (ExampleOfNumberFormatException) example;
@@ -23,10 +21,6 @@ public class ExampleOfClassCastException extends Example{
                     finalExample = example1;
                 }
             }
-
-        }catch (ClassCastException e){
-            System.out.println("Неверное приведение типов");
-        }
     return finalExample;
     }
 }

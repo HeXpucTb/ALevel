@@ -31,8 +31,8 @@ public abstract class AbstractPosition implements Position{
 
     @Override
     public int compareTo(Position position) {
-        Double tempPrice = position.getPrice();
+        String tempName = position.getName();
 
-        return tempPrice.compareTo(this.price);
+        return this.name.compareTo(tempName);
     }
 }

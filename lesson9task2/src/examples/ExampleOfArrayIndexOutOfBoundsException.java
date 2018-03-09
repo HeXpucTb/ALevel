@@ -3,13 +3,17 @@ package examples;
 
 public class ExampleOfArrayIndexOutOfBoundsException extends Example {
     public void callArInOutOBoundsEx(String[] array){
-        try{
+        if(array.length==30) {
             for (int i = 0; i < 30; i++) {
-                System.out.print(" "+array[i]);
+                System.out.print(" " + array[i]);
             }
             System.out.println("");
-        }catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("Вышли за пределы массива");
+        }
+        else {
+            for (String i:array) {
+                System.out.println(" "+i);
+            }
+            System.out.println("");
         }
     }
 }
