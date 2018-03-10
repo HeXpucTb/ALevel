@@ -1,3 +1,5 @@
+import fifthtask.HorseWayChecker;
+import firsttask.BeginerTask;
 import fourthtask.PasswordsChecker;
 import secondtask.NumberMaker;
 import thirdtask.ArrayChecker;
@@ -14,6 +16,7 @@ public class Demo {
             System.out.println("2 Угадай число");
             System.out.println("3 Количество разных элементов");
             System.out.println("4 Топ10 паролей");
+            System.out.println("5 Ход коня");
             System.out.println("0 - выйти");
             switch (scanner.nextInt()){
                 case 0:{
@@ -21,6 +24,8 @@ public class Demo {
                     break;
                 }
                 case 1:{
+                    BeginerTask example1 = new BeginerTask();
+                    example1.beginTask();
                     break;
                 }
                 case 2:{
@@ -36,11 +41,16 @@ public class Demo {
                     break;
                 }
                 case 4: {
-                    PasswordsChecker exapmple4 = new PasswordsChecker();
-                    exapmple4.addPasswordsToList();
-                    exapmple4.checkOverlap();
-                    exapmple4.returnTop10PasswordsList();
-                    exapmple4.print10Top(exapmple4.getTop10());
+                    PasswordsChecker example4 = new PasswordsChecker();
+                    example4.addPasswordsToList();
+                    example4.checkOverlap();
+                    example4.returnTop10PasswordsList();
+                    example4.print10Top(example4.getTop10());
+                    break;
+                }
+                case 5:{
+                    HorseWayChecker example5 = new HorseWayChecker();
+                    example5.runHorseWayChecker();
                     break;
                 }
             }
