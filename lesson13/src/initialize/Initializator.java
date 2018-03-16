@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Initializator {
-    private List<FileExamp> fileExamps;
+    private List<String> fileExamps;
     private Scanner scanner;
 
     public Initializator() {
@@ -31,24 +31,24 @@ public class Initializator {
         return new File(scanner.nextLine());
     }
     public void getContent(File dir, String spaces){
-        if(dir.isFile()){
+        if(dir.isFile()&&dir.canRead()){
             Date lastMod = new Date(dir.lastModified());
-            Path dirPath = Paths.get(dir.getAbsolutePath());
-            FileExamp fileExamp = new FileExamp(dirPath, spaces+dir.getName(), lastMod);
-            fileExamps.add(fileExamp);
+            //Path dirPath = Paths.get(dir.getAbsolutePath());
+            //FileExamp fileExamp = new FileExamp(dirPath, spaces+dir.getName(), lastMod);
+            fileExamps.add(""+dir.getName()+" : "+lastMod);
         }
         else {
-            spaces +=" ";
+            spaces +="  ";
             File[] subDir = dir.listFiles();
             if(subDir!=null) {
                 for (File sub : subDir) {
-                    if(sub.isFile()){
+                    if(sub.isFile()&&sub.canRead()){
                         Date lastMod = new Date(sub.lastModified());
-                        Path dirPath = Paths.get(sub.getAbsolutePath());
-                        FileExamp fileExamp = new FileExamp(dirPath, spaces+sub.getName(), lastMod);
-                        fileExamps.add(fileExamp);
+                        //Path dirPath = Paths.get(sub.getAbsolutePath());
+                        //FileExamp fileExamp = new FileExamp(dirPath, spaces+sub.getName(), lastMod);
+                        fileExamps.add(spaces+sub.getName()+" : "+lastMod);
                     }
-                    if (sub.listFiles() != null) {
+                    if (sub.listFiles() != null&&sub.canRead()) {
                         getContent(sub, spaces);
                     }
                 }
@@ -56,7 +56,7 @@ public class Initializator {
         }
     }
 
-    public List<FileExamp> getFileExamps() {
+    public List<String> getFileExamps() {
         return fileExamps;
     }
 }

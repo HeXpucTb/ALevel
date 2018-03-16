@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileCreator {
-    public void createFile(String fileLoc, List<FileExamp> fileExamps) {
+    public void createFile(String fileLoc, List<String> fileExamps) {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileLoc))){
-            List <String> list = convertToStringList(fileExamps);
-            for (String ex: list) {
+            //List <String> list = convertToStringList(fileExamps);
+            for (String ex: fileExamps) {
                 writer.write(ex+System.lineSeparator());
                 writer.flush();
             }
@@ -19,12 +19,12 @@ public class FileCreator {
             System.out.println("Файл не создан");
         }
     }
-    private List<String> convertToStringList(List<FileExamp> fileExamps){
+    /*private List<String> convertToStringList(List<FileExamp> fileExamps){
         List<String> fileToString = new ArrayList<>();
         for (FileExamp file: fileExamps) {
             String t = ""+file.getName()+" : "+file.getDateEx();
             fileToString.add(t);
         }
         return fileToString;
-    }
+    }*/
 }
