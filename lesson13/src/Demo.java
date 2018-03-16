@@ -13,11 +13,12 @@ public class Demo {
         Initializator initializator = new Initializator();
         File path = initializator.initPath();
         FileExamp fileContainer = initializator.initFile();
-        initializator.getContent(path,"");
+        //initializator.getContent(path,"");
+        initializator.getContentByVisitor(path.toPath());
         String str = fileContainer.getPathLoc()+"/"+fileContainer.getName();
         fileCreator.createFile(str, initializator.getFileExamps());
         //При желании распечатать файл - раскомментируйте строку ниже
-        //printFile(str);
+        printFile(str);
     }
     private static void printFile(String fileLoc){
         try(BufferedReader reader = Files.newBufferedReader(Paths.get(fileLoc))){

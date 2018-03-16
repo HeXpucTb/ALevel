@@ -1,12 +1,12 @@
 package initialize;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileVisitOption;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Initializator {
     private List<String> fileExamps;
@@ -55,7 +55,18 @@ public class Initializator {
             }
         }
     }
+    public void getContentByVisitor(Path path){
 
+        SimpFileVisitor fileVisitor = new SimpFileVisitor();
+        EnumSet<FileVisitOption> options =  EnumSet.of(FileVisitOption.FOLLOW_LINKS);
+        int maxDepth = 100000;
+        try{
+            Files.walkFileTree(path,options, maxDepth, fileVisitor);
+            this.fileExamps = fileVisitor.getFilesList();
+        }catch (IOException e){
+            System.out.println("ошибка ввода-вывода");
+        }
+    }
     public List<String> getFileExamps() {
         return fileExamps;
     }
