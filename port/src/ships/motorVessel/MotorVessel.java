@@ -2,7 +2,7 @@ package ships.motorVessel;
 
 import ships.Ship;
 
-public class MotorVessel extends Ship {
+public abstract class MotorVessel extends Ship {
     public boolean isMotor = true;
     public double diesel;
 
@@ -14,5 +14,12 @@ public class MotorVessel extends Ship {
     @Override
     public void swim(int coordX, int coordY){
         System.out.println("Плывем пока есть горючее");
+    }
+    public void printFields(){
+        System.out.println("Name: "+ name);
+        System.out.println("Carrying: "+ carrying);
+        System.out.println("Speed: "+ speed);
+        System.out.println("IsMotor: "+ isMotor);
+        System.out.println("Diesel: "+ diesel);
     }
 }
