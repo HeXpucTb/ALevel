@@ -26,9 +26,14 @@ public abstract class FileUtils {
         ArrayList<String> csvStrings = new ArrayList<>();
         while (str1.contains(",")){
             int ind = str1.indexOf(",");
+            if(ind==0){
+                str1 = str1.substring(1);
+                continue;
+            }
             csvStrings.add(str1.substring(0, ind));
             str1 = str1.substring(ind);
         }
+        csvStrings.add(str1);
         return csvStrings;
     }
     public static ArrayList<String> parseTxtString(String str){

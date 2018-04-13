@@ -1,18 +1,26 @@
 import java.util.ArrayList;
 
 public abstract class SQLUtils {
-    public static String createTable(ArrayList<String> columns, String name){
-        return  "DROP TABLE IF EXISTS "+name+" ;"+
-                "CREATE TABLE "+name+" ("+
-                columns.get(0) +" VARCHAR(3) , "+
-                columns.get(1) +" INT(3) NOT NULL, "+
-                columns.get(2)+" VARCHAR(100) NOT NULL)";
+    private static String primaryKey;
+    private static String tName;
+    public static String createTable(ArrayList<String> columns){
+        primaryKey = columns.get(0);
+        return  "CREATE TABLE class."+tName+" ("+
+                primaryKey +" VARCHAR(3), "+
+                columns.get(1) +" INT(3), "+
+                columns.get(2) +" VARCHAR(100), "+
+                "PRIMARY KEY ("+primaryKey+"));";
     }
-    /*public static String executeQuery(ArrayList<String> str){
-
+    public static String getClassInfo(String userQery){
+        return "SELECT * FROM "+tName+" WHERE "+primaryKey+"='"+userQery+"';";
     }
-    public static String executeUpdateQuery(ArrayList<String> str){
 
-        return ;
-    }*/
+    public static String deleteTableIfExists(String name){
+        tName = name;
+        return "DROP TABLE IF EXISTS class."+tName;
+    }
+    public static String fillTable(ArrayList<String> data){
+        return "INSERT INTO "+tName+" VALUES ('"+data.get(0)+"','"+data.get(1)+"','"+data.get(2)+"');";
+    }
+
 }
