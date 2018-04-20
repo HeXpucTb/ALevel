@@ -1,0 +1,37 @@
+#text1{
+    display: none;
+}
+#text2{
+    display: none;
+}
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.column{
+    float: left;
+    width: 45%;
+}
+.sign{
+    position: absolute;
+    right: 100px;
+}
+#ctImg{
+    float: right;
+    width: 100%;
+}
+.ndImg{
+    float: right;
+    width: 100%;
+}
+#signin{
+    color: white;
+}
+.signinform{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+#addfoto{
+    color: white;
+}

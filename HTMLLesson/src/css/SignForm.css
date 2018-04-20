@@ -1,0 +1,39 @@
+#e_name{
+    display: none;
+    color: red;
+}
+#e_email{
+    display: none;
+    color: red;
+}
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.column{
+    float: left;
+    width: 45%;
+}
+.sign{
+    position: absolute;
+    right: 100px;
+}
+#ctImg{
+    float: right;
+    width: 100%;
+}
+.ndImg{
+    float: right;
+    width: 100%;
+}
+#signin{
+    color: white;
+}
+.signinform{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+#addfoto{
+    color: white;
+}

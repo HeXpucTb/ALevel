@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Form</title>
+    <link rel="stylesheet" href="bootstrap-4.1.0/dist/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/SignForm.css">
+</head>
+<body>
+<header>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" href="Main.html">Main</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="SignForm.html">Sign In</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>
+    <div class="row">
+        <div class="column">
+            <form class="signinform">
+                <div class="form-group" id = "nameform">
+                    <label for="exampleInputName">Name</label>
+                    <span id ="e_name">Wrong name!</span>
+                    <input type="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter name" onkeyup = "checkName(this.value)">
+                    <small id="namesmall" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <span id ="e_email">Wrong email!</span>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onkeyup = "checkEmail(this.value)">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Repeat password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Repeat password">
+                </div>
+                <button type="submit" class="btn btn-primary" id="signinbtn" onClick="butEvent()">Submit</button>
+            </form>
+        </div>
+        <div class="column"></div>
+    </div>
+
+</header>
+<script type="text/javascript" src="js/sign_form.js"></script>
+</body>
+</html>
