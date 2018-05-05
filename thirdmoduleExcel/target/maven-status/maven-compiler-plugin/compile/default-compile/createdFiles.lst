@@ -1,0 +1,4 @@
+com/servlets/EditTableServlet.class
+com/utils/DBHandler.class
+com/servlets/DeleteTableServlet.class
+com/servlets/CreateTableServlet.class

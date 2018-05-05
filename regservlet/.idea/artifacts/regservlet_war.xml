@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="regservlet:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="regservlet.war">
+      <element id="artifact" artifact-name="regservlet:war exploded" />
+    </root>
+  </artifact>
+</component>
