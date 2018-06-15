@@ -1,0 +1,35 @@
+Select task for resolve:
+1 - Correct brace expression;
+2 - The cheapest way;
+3 - Sum of 100!;
+0 - exit;
+1
+Enter the count of braces:
+8
+
+1430
+
+Select task for resolve:
+1 - Correct brace expression;
+2 - The cheapest way;
+3 - Sum of 100!;
+0 - exit;
+2
+Enter source you want to use (file or console allowed now):
+file
+Enter a path of file with parameters:
+/home/aleksandr/Java/com.implemica_resolve/src/low_cost/input.txt
+
+Test id: 1
+output:
+3
+2
+
+Select task for resolve:
+1 - Correct brace expression;
+2 - The cheapest way;
+3 - Sum of 100!;
+0 - exit;
+3
+
+648
